@@ -1,0 +1,224 @@
+# i3 config file 
+
+# mod
+set $mod Mod4
+
+# font
+font pango: Ubuntu 9
+
+# disable window titlebars
+for_window [class="^.*"] border pixel 2
+
+# thin borders
+hide_edge_borders both
+
+# drag windows
+floating_modifier $mod
+
+# gaps
+gaps inner 5
+gaps outer 1
+smart_gaps on
+
+# gaps for tor
+workspace 2 gaps outer 3
+
+# stop focus following the mouse
+focus_follows_mouse no
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+b split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+set $workspace1 "1 WWW"
+set $workspace2 "2 TOR"
+set $workspace3 "3 TERM"
+set $workspace4 "4 EDIT"
+set $workspace5 "5 FILES"
+set $workspace6 "6 VLC"
+set $workspace7 "7 PRIV"
+set $workspace8 "8 ?"
+set $workspace9 "9 ?"
+set $workspace10 "10 QBIT"
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
+bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# switch to workspace
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
+bindsym $mod+0 workspace $workspace10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# resize mode
+bindsym $mod+r mode "resize"
+
+# colours used throughout the config
+set $bg-color 	         #282828
+set $inactive-bg-color   #282828
+set $text-color          #f3f4f5
+set $inactive-text-color #787878
+#set $urgent-bg-color     #E53935
+set $urgent-bg-color     #282828
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          #808080           #808080          $text-color          #808080
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #808080
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #808080
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #808080
+
+# bar
+bar {
+  	status_command i3blocks -c /home/admin/.config/i3/i3blocks.conf
+	colors {
+		background $bg-color
+	    	separator #757575
+		#                  border             background         text
+		focused_workspace  $bg-color          $bg-color          $text-color
+		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+	}
+	position top
+}
+
+
+# sticky window
+bindsym $mod+Shift+s sticky toggle
+
+# floating
+for_window [class="Polkit-gnome-authentication-agent-1"] floating enable
+
+# default workspaces
+assign [class="Tor Browser"] $workspace2
+assign [class="Firefox Developer Edition"] $workspace1
+assign [class="qBittorrent"] $workspace10
+assign [class="Thunar"] $workspace5
+assign [class="Nemo"] $workspace5
+assign [class="Geany"] $workspace4
+assign [class="Mousepad"] $workspace4
+assign [class="vlc"] $workspace6
+assign [class="VirtualBox Manager"] $workspace8
+assign [class="VirtualBox Machine"] $workspace8
+assign [class="URxvt"] $workspace3
+assign [class="KeePass2"] $workspace7
+assign [class="Veracrypt"] $workspace7
+assign [class="Ristretto"] $workspace4
+assign [class="Xfce4-terminal"] $workspace3
+assign [class="Brave-browser"] $workspace1
+assign [class="Engrampa"] $workspace5
+
+# key-bindings (check numpad bindings below
+bindsym $mod+Return exec urxvt
+bindsym $mod+q kill
+bindsym $mod+p exec xfce4-screenshooter
+#bindsym $mod+d exec rofi -show drun -modi "drun#run" -lines 15 -theme android_notification
+bindsym $mod+d exec rofi -show drun
+#bindsym $mod+d exec dmenu
+
+# poweroff and such
+bindsym $mod+Shift+F11 exec reboot
+bindsym $mod+Shift+F12 exec poweroff
+bindsym $mod+Shift+F10 exec "i3-nagbar -t warning -m 'Wanna log out?' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+F9 exec i3lock --image /mnt/850/WinXP/L24IEfO.png
+bindsym $mod+Shift+F9 exec i3lock -c 000000
+
+# use numpad keys (num lock on)
+#bindsym $mod+Shift+Mod2+KP_End 
+#bindsym $mod+Shift+Mod2+KP_Down 
+#bindsym $mod+Shift+Mod2+KP_Next 
+#bindsym $mod+Shift+Mod2+KP_Left 
+#bindsym $mod+Shift+Mod2+KP_Begin 
+#bindsym $mod+Shift+Mod2+KP_Right 
+#bindsym $mod+Shift+Mod2+KP_Home 
+#bindsym $mod+Shift+Mod2+KP_Up 
+#bindsym $mod+Shift+Mod2+KP_Prior 
+#bindsym $mod+Shift+Mod2+KP_Insert 
+
+# use numpad keys (num lock off)
+bindsym $mod+KP_End exec tor-browser
+bindsym $mod+KP_Down exec nemo
+bindsym $mod+KP_Next exec geany
+bindsym $mod+KP_Left exec sudo thunar
+#bindsym $mod+Shift+KP_Begin 
+#bindsym $mod+Shift+KP_Right 
+#bindsym $mod+Shift+KP_Home 
+#bindsym $mod+Shift+KP_Up 
+#bindsym $mod+Shift+KP_Prior 
+bindsym $mod+KP_Insert exec firefox-developer-edition
+
+# startup
+exec_always nitrogen --restore
+exec --no-startup-id compton
+exec --no-startup-id qbittorrent
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+

@@ -1,0 +1,4 @@
+rofi.modi: drun,run
+rofi.theme: android_notification
+rofi.font: Ubuntu 12
+rofi.lines: 15
