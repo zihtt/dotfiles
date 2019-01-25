@@ -54,3 +54,12 @@ export SCM_CHECK=true
 
 # Load Bash It
 source "$BASH_IT"/bash_it.sh
+
+# Aliases
+alias lit="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+alias pu="sudo pacman -Syyu && yay -Syua"
+alias pi="sudo pacman -S"
+alias pr="sudo pacman -Rns"
+alias ps="sudo pacman -Ss"
+alias pia="yay -S"
+alias psa="yay -Ss"
