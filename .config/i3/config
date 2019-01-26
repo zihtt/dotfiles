@@ -208,8 +208,8 @@ bindsym $mod+KP_End exec tor-browser
 bindsym $mod+KP_Down exec nemo
 bindsym $mod+KP_Next exec geany
 bindsym $mod+KP_Left exec sudo thunar
-#bindsym $mod+Shift+KP_Begin 
-#bindsym $mod+Shift+KP_Right 
+bindsym $mod+KP_Begin exec virtualbox
+bindsym $mod+KP_Right exec keepass
 #bindsym $mod+Shift+KP_Home 
 #bindsym $mod+Shift+KP_Up 
 #bindsym $mod+Shift+KP_Prior 
