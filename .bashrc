@@ -64,3 +64,5 @@ alias pacs="sudo pacman -Ss"
 alias yayi="yay -S"
 alias yays="yay -Ss"
 alias nv="nordvpn"
+alias litp="lit push lab && lit push hub"
+
