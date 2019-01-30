@@ -219,6 +219,6 @@ bindsym $mod+KP_Insert exec firefox-developer-edition
 exec_always nitrogen --restore
 exec --no-startup-id compton
 exec --no-startup-id qbittorrent
-exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 
