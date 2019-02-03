@@ -126,8 +126,8 @@ set $bg-color 	         #282828
 set $inactive-bg-color   #282828
 set $text-color          #f3f4f5
 set $inactive-text-color #787878
-#set $urgent-bg-color     #E53935
-set $urgent-bg-color     #282828
+set $urgent-bg-color     #E53935
+#set $urgent-bg-color     #282828
 
 # window colors
 #                       border              background         text                 indicator
