@@ -138,7 +138,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-  	status_command i3blocks -c /home/admin/.config/i3/i3blocks.conf
+ 	status_command i3blocks -c /home/admin/.config/i3/i3blocks.conf
 	colors {
 		background $bg-color
 	    	separator #757575
@@ -176,13 +176,17 @@ assign [class="Xfce4-terminal"] $workspace3
 assign [class="Brave-browser"] $workspace1
 assign [class="Engrampa"] $workspace5
 
-# key-bindings (check numpad bindings below
+# key-bindings (numpad bindings below)
 bindsym $mod+Return exec urxvt
 bindsym $mod+q kill
 bindsym $mod+p exec xfce4-screenshooter
 #bindsym $mod+d exec rofi -show drun -modi "drun#run" -lines 15 -theme android_notification
 bindsym $mod+d exec rofi -show drun
 #bindsym $mod+d exec dmenu
+
+# volume
+bindsym $mod+F5 exec amixer set Master -q 5%-
+bindsym $mod+F6 exec amixer set Master -q 5%+
 
 # poweroff and such
 bindsym $mod+Shift+F11 exec reboot
@@ -210,7 +214,7 @@ bindsym $mod+KP_Next exec geany
 bindsym $mod+KP_Left exec sudo thunar
 bindsym $mod+KP_Begin exec virtualbox
 bindsym $mod+KP_Right exec keepass
-#bindsym $mod+Shift+KP_Home 
+bindsym $mod+KP_Home exec qbittorrent
 #bindsym $mod+Shift+KP_Up 
 #bindsym $mod+Shift+KP_Prior 
 bindsym $mod+KP_Insert exec firefox-developer-edition
@@ -218,7 +222,7 @@ bindsym $mod+KP_Insert exec firefox-developer-edition
 # startup
 exec_always nitrogen --restore
 exec --no-startup-id compton
-exec --no-startup-id qbittorrent
+#exec --no-startup-id qbittorrent
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
