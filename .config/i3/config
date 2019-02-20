@@ -20,9 +20,6 @@ gaps inner 5
 gaps outer 1
 smart_gaps on
 
-# gaps for tor
-workspace 2 gaps outer 3
-
 # stop focus following the mouse
 focus_follows_mouse no
 
@@ -169,7 +166,7 @@ assign [class="vlc"] $workspace6
 assign [class="VirtualBox Manager"] $workspace8
 assign [class="VirtualBox Machine"] $workspace8
 assign [class="URxvt"] $workspace3
-assign [class="KeePass2"] $workspace7
+assign [class="Keepassx2"] $workspace7
 assign [class="Veracrypt"] $workspace7
 assign [class="Ristretto"] $workspace4
 assign [class="Xfce4-terminal"] $workspace3
@@ -213,9 +210,9 @@ bindsym $mod+KP_Down exec nemo
 bindsym $mod+KP_Next exec geany
 bindsym $mod+KP_Left exec sudo thunar
 bindsym $mod+KP_Begin exec virtualbox
-bindsym $mod+KP_Right exec keepass
+bindsym $mod+KP_Right exec keepassx2
 bindsym $mod+KP_Home exec qbittorrent
-#bindsym $mod+Shift+KP_Up 
+bindsym $mod+KP_Up exec veracrypt
 #bindsym $mod+Shift+KP_Prior 
 bindsym $mod+KP_Insert exec firefox-developer-edition
 
