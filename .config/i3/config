@@ -1,10 +1,10 @@
-# i3 config file 
+# i3 config file
 
 # mod
 set $mod Mod4
 
 # font
-font pango: Ubuntu 9
+font pango: Roboto 9
 
 # disable window titlebars
 for_window [class="^.*"] border pixel 2
@@ -160,18 +160,22 @@ assign [class="Firefox Developer Edition"] $workspace1
 assign [class="qBittorrent"] $workspace10
 assign [class="Thunar"] $workspace5
 assign [class="Nemo"] $workspace5
+assign [class="dolphin"] $workspace5
 assign [class="Geany"] $workspace4
 assign [class="Mousepad"] $workspace4
+assign [class="gwenview"] $workspace4
 assign [class="vlc"] $workspace6
 assign [class="VirtualBox Manager"] $workspace8
 assign [class="VirtualBox Machine"] $workspace8
 assign [class="URxvt"] $workspace3
+assign [class="st-256color"] $workspace3
 assign [class="Keepassx2"] $workspace7
 assign [class="Veracrypt"] $workspace7
 assign [class="Ristretto"] $workspace4
 assign [class="Xfce4-terminal"] $workspace3
 assign [class="Brave-browser"] $workspace1
 assign [class="Engrampa"] $workspace5
+assign [class="ark"] $workspace5
 
 # key-bindings (numpad bindings below)
 bindsym $mod+Return exec urxvt
@@ -193,33 +197,32 @@ bindsym $mod+Shift+F10 exec "i3-nagbar -t warning -m 'Wanna log out?' -B 'Yes, e
 bindsym $mod+Shift+F9 exec i3lock -c 000000
 
 # use numpad keys (num lock on)
-#bindsym $mod+Shift+Mod2+KP_End 
-#bindsym $mod+Shift+Mod2+KP_Down 
-#bindsym $mod+Shift+Mod2+KP_Next 
-#bindsym $mod+Shift+Mod2+KP_Left 
-#bindsym $mod+Shift+Mod2+KP_Begin 
-#bindsym $mod+Shift+Mod2+KP_Right 
-#bindsym $mod+Shift+Mod2+KP_Home 
-#bindsym $mod+Shift+Mod2+KP_Up 
-#bindsym $mod+Shift+Mod2+KP_Prior 
-#bindsym $mod+Shift+Mod2+KP_Insert 
+#bindsym $mod+Shift+Mod2+KP_End
+#bindsym $mod+Shift+Mod2+KP_Down
+#bindsym $mod+Shift+Mod2+KP_Next
+#bindsym $mod+Shift+Mod2+KP_Left
+#bindsym $mod+Shift+Mod2+KP_Begin
+#bindsym $mod+Shift+Mod2+KP_Right
+#bindsym $mod+Shift+Mod2+KP_Home
+#bindsym $mod+Shift+Mod2+KP_Up
+#bindsym $mod+Shift+Mod2+KP_Prior
+#bindsym $mod+Shift+Mod2+KP_Insert
 
 # use numpad keys (num lock off)
 bindsym $mod+KP_End exec tor-browser
-bindsym $mod+KP_Down exec nemo
+bindsym $mod+KP_Down exec dolphin
 bindsym $mod+KP_Next exec geany
 bindsym $mod+KP_Left exec sudo thunar
 bindsym $mod+KP_Begin exec virtualbox
 bindsym $mod+KP_Right exec keepassx2
 bindsym $mod+KP_Home exec qbittorrent
 bindsym $mod+KP_Up exec veracrypt
-#bindsym $mod+Shift+KP_Prior 
+#bindsym $mod+Shift+KP_Prior
 bindsym $mod+KP_Insert exec firefox-developer-edition
 
 # startup
 exec_always nitrogen --restore
 exec --no-startup-id compton
 #exec --no-startup-id qbittorrent
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
+exec xset r rate 500 33

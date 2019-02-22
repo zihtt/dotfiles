@@ -1,4 +1,4 @@
-URxvt.font: xft:Roboto Mono:size=10.5
+URxvt.font: xft:Roboto Mono:size=11
 URxvt.scrollBar: false
 URxvt.depth: 32
 URxvt.background: [75]#000000
